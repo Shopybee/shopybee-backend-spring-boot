@@ -18,6 +18,11 @@ public class UserController {
         this.service = service;
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestBody User user){
+        return new ResponseEntity<Object>(service.login(user), HttpStatus.OK);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<User> create(@RequestBody User user){
         return new ResponseEntity<User>(service.create(user), HttpStatus.OK);
