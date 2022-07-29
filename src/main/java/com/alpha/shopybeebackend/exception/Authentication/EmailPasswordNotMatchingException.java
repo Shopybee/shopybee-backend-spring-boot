@@ -1,4 +1,4 @@
-package com.alpha.shopybeebackend.exception.exceptions.authentication;
+package com.alpha.shopybeebackend.exception.Authentication;
 
 public class EmailPasswordNotMatchingException extends RuntimeException {
     public EmailPasswordNotMatchingException(String message) {

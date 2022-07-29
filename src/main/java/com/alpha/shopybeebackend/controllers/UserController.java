@@ -1,5 +1,4 @@
 package com.alpha.shopybeebackend.controllers;
-
 import com.alpha.shopybeebackend.models.User;
 import com.alpha.shopybeebackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,9 @@ public class UserController {
         return new ResponseEntity<Object>(service.login(user), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<User> create(@RequestBody User user){
-        return new ResponseEntity<User>(service.create(user), HttpStatus.OK);
+    @PostMapping("/register")
+    public ResponseEntity<User> reg(@RequestBody User user){
+        return new ResponseEntity<User>(service.registerNewUser(user), HttpStatus.OK);
     }
 
     @GetMapping("/get-by-id/{id}")

@@ -1,7 +1,8 @@
 package com.alpha.shopybeebackend.services;
 
-import com.alpha.shopybeebackend.exception.exceptions.authentication.EmailNotFoundException;
-import com.alpha.shopybeebackend.exception.exceptions.authentication.EmailPasswordNotMatchingException;
+import com.alpha.shopybeebackend.exception.Authentication.EmailAlreadyPresentException;
+import com.alpha.shopybeebackend.exception.Authentication.EmailNotFoundException;
+import com.alpha.shopybeebackend.exception.Authentication.EmailPasswordNotMatchingException;
 import com.alpha.shopybeebackend.models.User;
 import com.alpha.shopybeebackend.respositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,13 @@ public class UserService {
         }
     }
 
-    public User create(User user){
-        return repository.save(user);
+    public User registerNewUser(User user){
+        if (repository.existsByEmail(user.getEmail())){
+            throw new EmailAlreadyPresentException("This email already exists, Try logging in !");
+        }
+        else{
+            return repository.save(user);
+        }
     }
 
     public User getById(Long id){
