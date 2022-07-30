@@ -30,10 +30,10 @@ public class AuthExceptionHandler {
         ApiException apiException = new ApiException(
                 exception.getMessage(),
                 Timestamp.valueOf(LocalDateTime.now()),
-                HttpStatus.NOT_ACCEPTABLE
+                HttpStatus.BAD_REQUEST
         );
 
-        return new ResponseEntity<Object>(apiException,HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<Object>(apiException,HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {EmailAlreadyPresentException.class})
@@ -41,7 +41,7 @@ public class AuthExceptionHandler {
         ApiException apiException = new ApiException(
                 exception.getMessage(),
                 Timestamp.valueOf(LocalDateTime.now()),
-                HttpStatus.NOT_ACCEPTABLE
+                HttpStatus.BAD_REQUEST
         );
 
         return new ResponseEntity<Object>(apiException,HttpStatus.NOT_ACCEPTABLE);
