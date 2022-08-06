@@ -14,6 +14,8 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO) // auto generates id
     private int id;
     private int userId;
+
+    private String name;
     private String addressLine;
     private String city;
     private String state;
@@ -23,8 +25,9 @@ public class Address {
 
     private String phone;
 
-    public Address(int userId, String addressLine, String city, String state, String landmark, String pincode,String phone) {
+    public Address(int userId, String name , String addressLine, String city, String state, String landmark, String pincode,String phone) {
         this.userId = userId;
+        this.name = name;
         this.addressLine = addressLine;
         this.city = city;
         this.state = state;
@@ -33,8 +36,9 @@ public class Address {
         this.phone=phone;
     }
 
-    public Address(int id, int userId, String addressLine, String city, String state, @Nullable String landmark, String pincode, String phone) {
+    public Address(int id, String name, int userId, String addressLine, String city, String state, @Nullable String landmark, String pincode, String phone) {
         this.id = id;
+        this.name = name;
         this.userId = userId;
         this.addressLine = addressLine;
         this.city = city;
