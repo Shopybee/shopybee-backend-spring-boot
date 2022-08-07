@@ -31,7 +31,7 @@ public class MobileCategoryService {
     }
 
     public MobileCategory update(MobileCategory mobileCategory){
-        if(repository.existsById(mobileCategory.getId())){
+        if(repository.existsById(mobileCategory.getCategoryId())){
             return repository.save(mobileCategory);
         }
         else {

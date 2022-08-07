@@ -25,4 +25,8 @@ public class MobileService {
         return repository.save(mobile);
     }
 
+    public Mobile update(Mobile mobile){
+        return repository.save(mobile);
+    }
+
 }

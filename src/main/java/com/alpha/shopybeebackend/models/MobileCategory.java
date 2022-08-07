@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class MobileCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // auto generates id
-    private int id;
+    private int brandId;
     private int categoryId;
     private String name;
     private String logo;
