@@ -27,6 +27,11 @@ public class MobileController {
 
     @GetMapping("/getAll/{brandId}")
     public ResponseEntity<List<Mobile>> getAll(@PathVariable int brandId){
-        return new ResponseEntity<List<Mobile>>(service.getAllByCategory(brandId),HttpStatus.OK);
+        return new ResponseEntity<List<Mobile>>(service.getAllByBrandId(brandId),HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<Mobile> update(@RequestBody Mobile mobile){
+        return new ResponseEntity<Mobile>(service.update(mobile),HttpStatus.OK);
     }
 }

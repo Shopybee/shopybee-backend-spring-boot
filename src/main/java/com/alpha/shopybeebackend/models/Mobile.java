@@ -10,7 +10,7 @@ import java.util.List;
 public class Mobile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // auto generates id
-    private int id; // Id of the mobile
+    private int productId; // Id of the mobile
     private int brandId;
     private String name; // Name of the mobile
     private String mainImage;
@@ -61,5 +61,10 @@ public class Mobile {
         this.frontCamera = frontCamera;
         this.rearCamera = rearCamera;
         this.itemsInBox = itemsInBox;
+    }
+
+    public Mobile(int id, String mainImage) {
+        this.productId = id;
+        this.mainImage = mainImage;
     }
 }

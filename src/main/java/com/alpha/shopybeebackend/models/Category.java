@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // auto generates id
-    private int id;
+    private int categoryId;
     private String name;
     private String image;
 
