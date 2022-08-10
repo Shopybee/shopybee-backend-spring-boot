@@ -1,6 +1,7 @@
 package com.alpha.shopybeebackend.controllers;
 
 import com.alpha.shopybeebackend.models.Cart;
+import com.alpha.shopybeebackend.models.CartIem;
 import com.alpha.shopybeebackend.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,4 +40,8 @@ public class CartController {
         return new ResponseEntity<Cart>(service.updateCart(cart),HttpStatus.OK);
     }
 
+    @GetMapping("/get-cart-item/{categoryId}/{brandId}/{productId}")
+    public ResponseEntity<CartIem> getCartItem(@PathVariable int categoryId,@PathVariable int brandId, @PathVariable int productId){
+        return new ResponseEntity<CartIem>(service.getCartItem(categoryId,brandId,productId),HttpStatus.OK);
+    }
 }
