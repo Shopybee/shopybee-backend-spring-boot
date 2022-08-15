@@ -38,6 +38,13 @@ public class CartService {
         return "Success";
     }
 
+    public String removeAllFromCart(int userId){
+        for (Cart c: getCartItems(userId)){
+            removeFromCart(c.getCartId());
+        }
+        return "Success";
+    }
+
     public Cart updateCart(Cart cart){
         return repository.save(cart);
     }
