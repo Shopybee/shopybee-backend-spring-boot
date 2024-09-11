@@ -1,4 +1,5 @@
 package com.alpha.shopybeebackend.controllers;
+
 import com.alpha.shopybeebackend.models.User;
 import com.alpha.shopybeebackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,22 @@ public class UserController {
         this.service = service;
     }
 
+    // Login endpoint: returns JWT token on successful login
     @PostMapping("/login")
-    public ResponseEntity<Object> login(@RequestBody User user){
-        return new ResponseEntity<Object>(service.login(user), HttpStatus.OK);
+    public ResponseEntity<String> login(@RequestBody User user) {
+        String token = service.login(user);  // JWT token returned from login method
+        return new ResponseEntity<>(token, HttpStatus.OK);
     }
 
+    // Register endpoint: register new user
     @PostMapping("/register")
-    public ResponseEntity<User> reg(@RequestBody User user){
-        return new ResponseEntity<User>(service.registerNewUser(user), HttpStatus.OK);
+    public ResponseEntity<User> register(@RequestBody User user) {
+        return new ResponseEntity<>(service.registerNewUser(user), HttpStatus.OK);
     }
 
+    // Get user by ID
     @GetMapping("/get-by-id/{id}")
-    public ResponseEntity<User> getById(@PathVariable Long id){
-        return new ResponseEntity<User>(service.getById(id), HttpStatus.OK);
+    public ResponseEntity<User> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 }
